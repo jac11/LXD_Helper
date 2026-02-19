@@ -12,9 +12,9 @@ import  shutil
 class LXD_Helper:
         def __init__(self):
 
-            self.DownloadFileZip()
-            self.Set_LXD()
-
+            #self.DownloadFileZip()
+            #self.Set_LXD()
+            self.Attack_Prev_sec() 
         def DownloadFileZip(self):
             try:
                 url = "https://github.com/jac11/LXD_Helper/raw/refs/heads/main/alpine-v3.13-x86_64-20210218_0139.tar.gz"
@@ -51,7 +51,8 @@ class LXD_Helper:
                                     Image = downloadzip.write(chunk)           
                 print('[+] INFO ........| download Done lxd required file')
                 print('[+] INFO ........| download Done Image alpine-v3.13-x86_64-20210218_0139.tar.gz') 
-                
+       
+
         def Set_LXD(self):
             try:
                 print("Extracting...")
@@ -64,6 +65,18 @@ class LXD_Helper:
                 
             except Exception as e:
                 print(f"Error in Set_LXD: {e}")
+        def Attack_Prev_sec(self):
+            print('[+] INFO ........| Start Prive_sec')
+            commands = [
+                    "id",
+                    "groups",
+                    "which lxc",
+                    "lxc --version",
+                  
+                ]        
+            for oder in commands :
+                  subprocess.run(oder)
+                 
                         
 if __name__ =='__main__':
    LXD_Helper()   
